@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block login %}
+<div class="login">
+    <h2>Log-in</h2>
+    <form action="">
+        <div class="login_id">
+            <label for="id"><h4>ID</h4></label>
+            <input type="id" placeholder="user_id" id="user_id" required>
+        </div>
+        <div class="login_pw">
+            <label for="password"><h4>Password</h4></label>
+            <input type="password" placeholder="Password" id="password" required>
+        </div>
+    </form>
+    <div class="forgot_pw">
+        <a>비밀번호를 잊으셨나요?</a>
+    </div>
+    <div class="login_submit">
+        <a href="/">Log-in</a>
+    </div>
+    <div class="login_join">
+        <span style="margin-right: 10px;">회원가입 하기</span>
+        <a href="/join" class="login_join_button">Join</a>
+    </div>
+</div>
+{% endblock %}
+

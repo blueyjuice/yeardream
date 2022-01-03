@@ -1,0 +1,91 @@
+{% extends 'kit.html' %}
+{% block diet_chart %}
+<div class="chart", id="food-data" data-name= '{{ foods_nutrients }}' data-test = '{{ sum_nutrients }}'>
+    <canvas id="secondChart" width="500px" height="130px"></canvas>
+    <p>
+      코로나 면역에 효과있는 영양소입니다!
+      <br>
+      ⛔ 부족한 경우 주의하세요 ⛔
+    </p>
+    <hr class="kit_chart_line">
+    <canvas id="firstChart" width="500px" height="300px"></canvas>
+      <p>🚨 많이 섭취했어요. 조금 줄여주세요 :)</p>
+      <p>💪 너무 부족해요. 많이 필요합니다 ;)</p>
+    
+</div>
+<!--chart.js-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"></script>
+<!--d3-->
+<script src="https://d3js.org/d3.v5.min.js"></script>
+<!--JavaScript -->
+<script type="text/javascript" src="../static/js/chart.js"></script>
+{% endblock %}
+
+{% block checker %}
+<div class='checker'>
+  <form method="post">
+    <div class="kit_personal_board">
+      <div class='symptom_1'>
+        <input type="checkbox" name="fever" id="fever" class="input_checker">
+        <label for="fever" class="label_checker">고열</label>
+        <input type="checkbox" name="head_ache" id="head_ache" class="input_checker">
+        <label for="head_ache" class="label_checker">두통</label>
+        <input type="checkbox" name="cough" id="cough" class="input_checker">
+        <label for="cough" class="label_checker">마른 기침</label>
+      </div>
+      <div class='symptom_1'>
+        <input type="checkbox" name="shortness_of_breath" id="shortness_of_breath" class="input_checker">
+        <label for="shortness_of_breath" class="label_checker">호흡 곤란</label>
+        <input type="checkbox" name="sore_throat" id="sore_throat" class="input_checker">
+        <label for="sore_throat" class="label_checker">인후염</label>
+        <input type="checkbox" name="None_Sympton" id="None_Sympton" class="input_checker">
+        <label for="None_Sympton" class="label_checker none_experience">증상 없음</label>
+      </div>
+        <div class='section'>
+  
+          <table style='display:inline;'>나이
+            <tr>
+              <td>
+                <select name="age_60_and_above">
+                  <option value="Age_60-">60세 이하</option>
+                  <option value="Age_60+">60세 이상</option>
+  
+                </select>
+              </td>
+            </tr>
+          </table>
+  
+          <table style='display:inline;'>성별
+            <tr>
+              <td>
+                <select name="gender">
+                  <option value="Gender_Female">Female</option>
+                  <option value="Gender_Male">Male</option>
+                  <!-- <option value="Gender_Transgender">Transgender</option> -->
+                </select>
+              </td>
+            </tr>
+          </table>
+  
+          <table style='display:inline;'>확진자 접촉 여부
+            <tr>
+              <td>
+                <select name="test_indication">
+                  <option value="Contact_with_confirmed">확진자 접촉</option>
+                  <option value="Abroad">해외</option>
+                  <option value="Other">기타</option>
+                </select>
+              </td>
+            </tr>
+          </table>
+
+      </div>
+    </div>
+    <div class="kit_two_button">
+      <input type="button" value="&lt;" onClick="location.href='/diet'" class="kit_button">
+      <input type="submit" id="kit_submit" name="btn" value="diet_result" class="kit_button_hidden">
+      <label for="kit_submit" class="kit_button">검사 결과 보기</label>
+    </div>
+  </form>
+</div>
+{% endblock %}
